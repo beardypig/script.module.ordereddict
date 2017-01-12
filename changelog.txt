@@ -1,0 +1,2 @@
+Version 1.1
+    * Copy of version 1.1 for ordereddict

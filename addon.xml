@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.module.backports.shutil_which" name="shutil.which" version="3.5.1" provider-name="beardypig">
+  <requires>
+    <import addon="xbmc.python" version="2.14.0"/>
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary>Backport of shutil.which</summary>
+    <source> http://www.python.org</source>
+    <platform>all</platform>
+    <license>MIT</license>
+  </extension>
+</addon>
