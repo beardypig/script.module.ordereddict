@@ -11,25 +11,26 @@ before_deploy:
 - mkdir -p dist/
 - cp build/*.zip build/*.zip.md5 addon.xml icon.png dist/
 deploy:
-  - provider: s3
-    access_key_id: AKIAJA536STKTMHCZFZQ
-    secret_access_key:
-     secure: xNMwHSvSb8RyuIeuuOFMwE8xID2mCrjwfyVLj7y5kN2bIUEvi42kyW16ZLAe5X8dz7ZDsFMNW4gKW8l+xUoKdcD9XK/GE6EhfEz2CVMfOme/W22w/xBXWJxmom86FRztiQDEnwG+gWtjFOs1IKEb7fC+ThtdH5Pvi8fd0+dIUrzomWT7GWdT/wnh8uF1tYT30IVMQu/az0fqm9m567w9W8upi+35XU9LDbllFo32CoRBnTtekhoa+REx7q8Rwz7JtL6BsrOAIFskC6nJAS6fWwSw+3VfVYNMAuh6F3WiCJ7B7MaUOMx7y2/cy/LYYdt+ZI+Vxh2hfH/8L/nFhJe0mn04OULu7j/Bk7QCHko6YbnQXnMW5lhCm39gmHXmNqYbTN2MUvndhXJDSbXLN4ZhNImD4S+bC08Nd6goVXWU4T1aUVQWA8vCXAYiTrdOXBzoGnaF+Ro+zScfJs8lIt5CoDblskkOC2chk99hfPf8OFoaHMlpJ6XY7UPBA/BQIjWeqQjNJjIY4hd9qf0D2tgCYnq7vF6Lbr56dpTnVFBWSSN7iKRLdklK9TlL8fcsjr/UVIFHCJUYo4AbtqCR9+XqRN04zUIBuWbhqUAZjGldJ0Dk5UhqkXh89Z1Xa4hL7QCzKsQAFyvX2Cpxp7Nm8qdnIPEZGtip45H/p0GhKEAJhpI=
-    bucket: xbmc.beardypig.plugins
-    local-dir: dist
-    upload-dir: addons/script.module.ordereddict
-    skip_cleanup: true
-    on:
-      repo: beardypig/script.module.ordereddict
-      tags: true
-  - provider: releases
-    api_key:
-      secure: R0rubG2+PcQgLInA8Sfm+vL9PqDSItXI44MIgmeds1tybu8+cSlgtTCejJug2d0th0AhdJIFucy7F/ZDhQsa2hLn+2GcoWVHFUW6RFdgBLK9wslK1BN3NCp8oXohkFr0LO6+JOwk0Wq5yy05BA0dR+f5uE2IRIVmE6Q7QbhNMeb4BW6t020HAYAPMrik0udGiFaRoCLBYu2yGFUrm3oV+VEPWMK7aBHXIkW4VpCXrO1IR7wknDDu6ViTxk/uaycbbJebwqM9EzsCFrPnQ+UeK0XBIC9MyiDXfpeS6GkaHU6sNxHO1s3csXp2DJcBFv9BhUv5k6BFLWruo3Rx8aBl85oQKSrlJEe8r/TmJf4ns73hw9zEjYlk8moXS0yJCL3v+p1WOf3kdugMUv+6Y2YhdzCBk/g6vcvpYLyZLoKBlVsSxuf5qrLDJkE4gKo2mcqpIs3QaSQMBYnicZwSW5qZmkcWNOzpxZHtFsF+WRf+a+jPHK34yG5SARjCbYw+psFFH9qu2ZNcZihj+xeQGGuqSvLAOlDsPbiTtQYs4td5anzsNjercikvNibuYLCf1nQlNuIh9JRB1iP5iDzDhB94C5Qbqg+cZI0SPJSJudRh0G5MiNr1Py0gu4dYwwgldgkMn6hMOeEXoI3D1Zdr6cAvokEUJtx22g8RBo/xjkVtJEg=
-    file: $TRAVIS_BUILD_DIR/build/script.module.ordereddict-$TRAVIS_TAG.zip
-    on:
-      repo: beardypig/script.module.ordereddict
-      tags: true
+- provider: s3
+  access_key_id: AKIAJA536STKTMHCZFZQ
+  secret_access_key:
+    secure: Yus0saQH4umHiEfd7u8rVKVU9WfxL1YApOPqOAW5uGOQX+qQvD9zG7F0rGtTDKmm1D2lnthoqZ03mMSbghRFAH6J0Mz25gUKJc3lF6FOUPt9tqEDGQrgnLaa+gEXvNrEomrehriUbGWNZmLOJ0wAE/dAR05RzE6lHeQlb6G6ycraYUG6vUfh0YQ6z6I6mGP+ObU4MEEEk0m4OMgkBhC767wfiwAUufvFJqdUetbjdddzbhzGHeoMzUebxIZ5dHG0bXpDS+9AXnqpIYOGBMggT60xRa4fK0XoaK3+FZSpDtVatLyLAkysQ3TntpKz3NWTiYuf6xLGDHx1ACmKt4f8RvsWFuC55GK+nt5p3p4CPQvcK6em3eXEti7R7cUF6mys5n5D92UF1LJqtwZ3kF0eqUOo1cxFuEfTXC2554s3QW1niUz8Yktw9Q/mX6BqaWS5r6QivFEEZs4FFMv5q792w5MxaBMt7sf9pmlJBY2L/4WcyiGcg0UgVH+g+S1QubtaCVVxHdc4lpOOS3POsNpbcCURn1n9tYBqSl+19SB8IazHSKT81FU2wqmdEFq/4ayNGZP+Lxz4igOo5MxugoEb8TkwXepIACAD/p6+ypLm5yBSGKgGmB1REXKDTEhpF0R34luGPO4JzJMsNSH7eyl3xMXalfoGDcCA3aCcmDNx+VA=
+  bucket: xbmc.beardypig.plugins
+  local-dir: dist
+  upload-dir: addons/script.module.ordereddict
+  skip_cleanup: true
+  on:
+    repo: beardypig/script.module.ordereddict
+    tags: true
+- provider: releases
+  api_key:
+    secure: R0rubG2+PcQgLInA8Sfm+vL9PqDSItXI44MIgmeds1tybu8+cSlgtTCejJug2d0th0AhdJIFucy7F/ZDhQsa2hLn+2GcoWVHFUW6RFdgBLK9wslK1BN3NCp8oXohkFr0LO6+JOwk0Wq5yy05BA0dR+f5uE2IRIVmE6Q7QbhNMeb4BW6t020HAYAPMrik0udGiFaRoCLBYu2yGFUrm3oV+VEPWMK7aBHXIkW4VpCXrO1IR7wknDDu6ViTxk/uaycbbJebwqM9EzsCFrPnQ+UeK0XBIC9MyiDXfpeS6GkaHU6sNxHO1s3csXp2DJcBFv9BhUv5k6BFLWruo3Rx8aBl85oQKSrlJEe8r/TmJf4ns73hw9zEjYlk8moXS0yJCL3v+p1WOf3kdugMUv+6Y2YhdzCBk/g6vcvpYLyZLoKBlVsSxuf5qrLDJkE4gKo2mcqpIs3QaSQMBYnicZwSW5qZmkcWNOzpxZHtFsF+WRf+a+jPHK34yG5SARjCbYw+psFFH9qu2ZNcZihj+xeQGGuqSvLAOlDsPbiTtQYs4td5anzsNjercikvNibuYLCf1nQlNuIh9JRB1iP5iDzDhB94C5Qbqg+cZI0SPJSJudRh0G5MiNr1Py0gu4dYwwgldgkMn6hMOeEXoI3D1Zdr6cAvokEUJtx22g8RBo/xjkVtJEg=
+  file: $TRAVIS_BUILD_DIR/build/script.module.ordereddict-$TRAVIS_TAG.zip
+  on:
+    repo: beardypig/script.module.ordereddict
+    tags: true
 after_deploy:
 - gem install travis
 - curl -LO https://raw.github.com/mernst/plume-lib/master/bin/trigger-travis.sh
 - sh trigger-travis.sh beardypig xbmc.beardypig.plugins $TRAVIS_ACCESS_TOKEN
+
